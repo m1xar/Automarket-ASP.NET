@@ -1,15 +1,42 @@
-﻿@model IEnumerable<Automarket.Domain.Models.Car>
+﻿@model List<Automarket.Domain.Models.Car>
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "GetCars";
     Layout = "_Layout";
 }
-
-@foreach (var car in Model)
+@if (User.IsInRole("Admin"))
 {
-    <p>@car.Name</p>
-    <p>@car.Model</p>
-    <p>@car.Description</p>
-    <p>@car.Price</p>
-    <p>@car.DateCreate</p>
+    <div class="flex justify-end mb-4">
+        <a asp-controller="Car" asp-action="Create" class="bg-green-500 text-white px-4 py-2 rounded">Add Car</a>
+
+    </div>
+}
+
+@if (Model != null && Model.Any())
+{
+        <h1 class="text-3xl font-bold mb-6">Available Cars</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        @foreach (var car in Model)
+        {
+                    <div class="bg-white p-4 rounded-lg shadow-md">
+                        <img src="~/images/@car.Image" alt="@car.Name" class="w-full h-32 object-cover mb-4">
+                        <h2 class="text-lg font-semibold mb-2">@car.Name</h2>
+                        <p class="text-gray-600 mb-4">@car.Description</p>
+                        <ul class="mb-4">
+                            <li><strong>Model:</strong> @car.Model</li>
+                            <li><strong>Speed:</strong> @car.Speed mph</li>
+                            <li><strong>Price:</strong> @String.Format("{0:C}", car.Price)</li>
+                            <li><strong>Date Created:</strong> @car.DateCreate.ToString("yyyy-MM-dd")</li>
+                            <li><strong>Type:</strong> @car.TypeCar</li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <a asp-controller="Car" asp-action="GetCarById" asp-route-id="@car.Id" class="bg-blue-500 text-white px-4 py-2 rounded">View Details</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-controller="Car" asp-action="Edit" asp-route-id="@car.Id" class="bg-red-500 text-white px-4 py-2 rounded">Edit</a>
+                    }
+                </div>
+                    </div>
+        }
+        </div>
 }

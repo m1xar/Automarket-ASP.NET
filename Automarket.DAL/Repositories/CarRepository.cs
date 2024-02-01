@@ -17,7 +17,7 @@ namespace Automarket.DAL.Repositories
         public async Task<bool> Create(Car entity)
         {
             await _db.Car.AddAsync(entity);
-            await _db.SaveChangesAsync();
+            _db.SaveChanges();
             return true;
         }
 
@@ -28,19 +28,17 @@ namespace Automarket.DAL.Repositories
             return true;
         }
 
-        async public Task<Car> Get(int id)
+        public async Task<IQueryable<Car>> Get()
         {
-            return await _db.Car.FirstOrDefaultAsync(x => x.Id == id);
+            return await Task.FromResult(_db.Car);
+        }
+        public async Task<Car> Update(Car entity)
+        {
+            _db.Car.Update(entity);
+            await _db.SaveChangesAsync();
+            return entity;
+
         }
 
-        public async Task<Car> GetByName(string name)
-        {
-            return await _db.Car.FirstOrDefaultAsync(x => x.Name == name);
-        }
-
-        public async Task<List<Car>> Select()
-        {
-            return await _db.Car.ToListAsync();
-        }
     }
 }

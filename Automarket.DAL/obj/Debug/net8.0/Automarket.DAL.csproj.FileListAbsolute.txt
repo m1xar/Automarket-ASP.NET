@@ -13,3 +13,4 @@ D:\SE\C#\Automarket\Automarket\Automarket.DAL\obj\Debug\net8.0\Automarket.DAL.dl
 D:\SE\C#\Automarket\Automarket\Automarket.DAL\obj\Debug\net8.0\refint\Automarket.DAL.dll
 D:\SE\C#\Automarket\Automarket\Automarket.DAL\obj\Debug\net8.0\Automarket.DAL.pdb
 D:\SE\C#\Automarket\Automarket\Automarket.DAL\obj\Debug\net8.0\ref\Automarket.DAL.dll
+D:\SE\C#\Automarket\Automarket\Automarket.DAL\obj\Debug\net8.0\Automarket.DAL.sourcelink.json

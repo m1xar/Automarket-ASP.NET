@@ -1,0 +1,53 @@
+﻿@model Dictionary<int, Automarket.Domain.Models.Car>
+
+@{
+    ViewBag.Title = "Show";
+    Layout = "_Layout";
+}
+<h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+
+@if (Model.Count > 0)
+{
+        <table class="min-w-full table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Name</th>
+                    <th class="px-4 py-2">Model</th>
+                    <th class="px-4 py-2">Speed</th>
+                    <th class="px-4 py-2">Price</th>
+                    <th class="px-4 py-2">Type</th>
+                    <th class="px-4 py-2">Image</th>
+                    <th class="px-4 py-2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                        <tr class="bg-gray-100">
+                            <td class="border px-4 py-2">@item.Value.Name</td>
+                            <td class="border px-4 py-2">@item.Value.Model</td>
+                            <td class="border px-4 py-2">@item.Value.Speed</td>
+                            <td class="border px-4 py-2">@item.Value.Price</td>
+                            <td class="border px-4 py-2">@item.Value.TypeCar</td>
+                            <td class="border px-4 py-2"><img src="~/images/@item.Value.Image" alt="@item.Value.Name" class="w-full h-32 object-cover mb-4"></td>
+                            <td class="border px-4 py-2">
+                                <form method="post" action="@Url.Action("Remove", "Cart", new { id = item.Key })">
+                                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+            }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="5"></td>
+                    <td class="border px-4 py-2 font-bold">Final Price:</td>
+                    <td class="border px-4 py-2 font-bold" colspan="3">@Model.Sum(x => x.Value.Price)</td>
+                </tr>
+            </tfoot>
+        </table>
+}
+else
+{
+        <p class="text-gray-700">Your cart is empty.</p>
+}

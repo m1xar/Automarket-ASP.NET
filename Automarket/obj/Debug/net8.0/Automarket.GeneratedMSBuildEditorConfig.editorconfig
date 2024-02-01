@@ -26,12 +26,36 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\SE\C#\Automarket\Automarket\Automarket
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Car/GetCar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEdldENhci5jc2h0bWw=
+[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Account/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxTaWduVXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Car/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Car/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Car/GetCarById.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEdldENhckJ5SWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/SE/C\#/Automarket/Automarket/Automarket/Views/Car/GetCars.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FyXEdldENhcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/SE/C\#/Automarket/Automarket/Automarket/Views/Home/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/SE/C\#/Automarket/Automarket/Automarket/Views/Home/Index.cshtml]

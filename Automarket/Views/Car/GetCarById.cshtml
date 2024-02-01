@@ -1,0 +1,34 @@
+﻿@model Automarket.Domain.Models.Car
+@{
+    ViewData["Title"] = "GetCarById";
+    Layout = "_Layout";
+}
+
+<div class="container mx-auto my-8">
+    <div class="bg-white p-8 rounded-lg shadow-md">
+        <img src="~/images/@Model.Image" alt="@Model.Name" class="w-full h-64 object-cover mb-4">
+        <h1 class="text-3xl font-bold mb-2">@Model.Name</h1>
+        <p class="text-gray-600 mb-4">@Model.Description</p>
+        <ul class="mb-4">
+            <li><strong>Model:</strong> @Model.Model</li>
+            <li><strong>Speed:</strong> @Model.Speed mph</li>
+            <li><strong>Price:</strong> @String.Format("{0:C}", Model.Price)</li>
+            <li><strong>Date Created:</strong> @Model.DateCreate.ToString("yyyy-MM-dd")</li>
+            <li><strong>Type:</strong> @Model.TypeCar</li>
+        </ul>
+        <div class="flex justify-between items-center">
+            <a asp-controller="Car" asp-action="GetCars" class="bg-gray-500 text-white px-4 py-2 rounded">Back to Cars</a>
+        </div>  
+        @if (User.IsInRole("Admin"))
+        {
+        <form method="post" action="@Url.Action("Delete", "Car", new { id = Model.Id })" onsubmit="return confirm('Are you sure you want to delete this car?');">
+            <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
+        </form>
+        }
+        <form method="post" action="@Url.Action("Add", "Cart", new { id = Model.Id })">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Add to cart</button>
+        </form>
+    </div>
+</div>
+
+

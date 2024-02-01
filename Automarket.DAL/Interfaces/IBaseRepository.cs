@@ -5,9 +5,7 @@ namespace Automarket.DAL.Interfaces
     {
         Task<bool> Create(T entity);
 
-        Task<T> Get(int id);
-
-        Task<List<T>> Select();
+        Task<IQueryable<T>> Get();
 
         Task<bool> Delete(T entity);
     }

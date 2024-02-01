@@ -15,3 +15,4 @@ D:\SE\C#\Automarket\Automarket\Automarket.Service\obj\Debug\net8.0\Automarket.Se
 D:\SE\C#\Automarket\Automarket\Automarket.Service\obj\Debug\net8.0\refint\Automarket.Service.dll
 D:\SE\C#\Automarket\Automarket\Automarket.Service\obj\Debug\net8.0\Automarket.Service.pdb
 D:\SE\C#\Automarket\Automarket\Automarket.Service\obj\Debug\net8.0\ref\Automarket.Service.dll
+D:\SE\C#\Automarket\Automarket\Automarket.Service\obj\Debug\net8.0\Automarket.Service.sourcelink.json

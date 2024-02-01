@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\images\\Screenshot 2023-12-13 202103.png",
+      "PackagePath": "staticwebassets\\images\\Screenshot 2023-12-13 202103.png"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\images\\Screenshot 2023-12-22 124409.png",
+      "PackagePath": "staticwebassets\\images\\Screenshot 2023-12-22 124409.png"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\images\\Screenshot 2023-12-29 200104.png",
+      "PackagePath": "staticwebassets\\images\\Screenshot 2023-12-29 200104.png"
+    },
+    {
       "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

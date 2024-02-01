@@ -10,3 +10,4 @@ D:\SE\C#\Automarket\Automarket\Automarket.Domain\obj\Debug\net8.0\refint\Automar
 D:\SE\C#\Automarket\Automarket\Automarket.Domain\obj\Debug\net8.0\Automarket.Domain.pdb
 D:\SE\C#\Automarket\Automarket\Automarket.Domain\obj\Debug\net8.0\ref\Automarket.Domain.dll
 D:\SE\C#\Automarket\Automarket\Automarket.Domain\obj\Debug\net8.0\Automarket.Domain.csproj.AssemblyReference.cache
+D:\SE\C#\Automarket\Automarket\Automarket.Domain\obj\Debug\net8.0\Automarket.Domain.sourcelink.json

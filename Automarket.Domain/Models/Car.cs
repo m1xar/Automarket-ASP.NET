@@ -1,4 +1,5 @@
 ﻿using Automarket.Domain.Enum;
+using Automarket.Domain.ViewModels;
 
 namespace Automarket.Domain.Models
 {
@@ -19,5 +20,7 @@ namespace Automarket.Domain.Models
         public DateTime DateCreate { get; set; }
 
         public TypeCar TypeCar { get; set; }
+
+        public string Image { get; set; }
     }
 }
