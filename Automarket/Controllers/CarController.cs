@@ -2,10 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Automarket.Domain.Models;
 using Automarket.Domain.ViewModels;
-using Microsoft.AspNetCore.Authorization;
-using System.IO;
-using Microsoft.Extensions.Hosting.Internal;
-using Automarket.Domain.Enum;
 
 
 namespace Automarket.Controllers
@@ -14,10 +10,13 @@ namespace Automarket.Controllers
     {
 
         private readonly ICarService _carService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CarController(ICarService carService)
+        public CarController(ICarService carService, IWebHostEnvironment webHostEnvironment)
         {
             _carService = carService;
+            _webHostEnvironment = webHostEnvironment;
+
         }
         [HttpGet]
         public async Task<IActionResult> GetCars()
@@ -45,6 +44,16 @@ namespace Automarket.Controllers
         {
             if (User.IsInRole("Admin"))
             {
+                var car = await _carService.GetCarById(id);
+                if (car.Data != null)
+                {
+                    string webRootPath = _webHostEnvironment.WebRootPath;
+                    string path = Path.Combine(webRootPath, "images", car.Data.Image);
+                    if (System.IO.File.Exists(path))
+                    {
+                        System.IO.File.Delete(path);
+                    }
+                }
                 var response = await _carService.Delete(id);
                 if (response.Data)
                 {
@@ -77,7 +86,7 @@ namespace Automarket.Controllers
             {
                 carModel.Image = carModel.ImageView.FileName;
             }
-            _carService.Edit(carModel);
+            await _carService.Edit(carModel);
             return RedirectToAction("GetCars");
         }
         public async Task<IActionResult> Create()
@@ -95,15 +104,19 @@ namespace Automarket.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CarViewModel carModel)
         {
-            carModel.DateCreate = DateTime.Now;
-            carModel.Image = Path.GetFileName(carModel.ImageView.FileName);
-            string filePath = "wwwroot/images/" + carModel.Image;
-            using (var stream = new FileStream(filePath, FileMode.Create))
+            if (ModelState.IsValid)
             {
-                await carModel.ImageView.CopyToAsync(stream);
+                carModel.DateCreate = DateTime.Now;
+                carModel.Image = Path.GetFileName(carModel.ImageView.FileName);
+                string filePath = "wwwroot/images/" + carModel.Image;
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await carModel.ImageView.CopyToAsync(stream);
+                }
+                _carService.Create(carModel);
+                return RedirectToAction("GetCars");
             }
-            _carService.Create(carModel);
-            return RedirectToAction("GetCars");
+            return View(carModel);
         }
     }
 }

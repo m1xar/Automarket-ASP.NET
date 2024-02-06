@@ -1,9 +1,5 @@
 ﻿using Automarket.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Automarket.Domain.ViewModels;
 
 namespace Automarket.Domain.Models
 {
@@ -11,6 +7,7 @@ namespace Automarket.Domain.Models
     {
         public int Id { get; set; }
 
+        public string Email { get; set; }
         public string Name { get; set; }
 
         public string Password { get; set; }
@@ -18,5 +15,6 @@ namespace Automarket.Domain.Models
         public UserRole Role { get; set; }
 
         public List<CartItem>? CartItems { get; set; }
+
     }
 }

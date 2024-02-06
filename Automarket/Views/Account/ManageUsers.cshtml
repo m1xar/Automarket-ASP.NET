@@ -1,0 +1,40 @@
+﻿@model List<Automarket.Domain.Models.User>
+@using Automarket.Domain.Enum
+
+@{
+    ViewBag.Title = "Manage Users";
+    Layout = "_Layout";
+}
+
+<div class="container mx-auto mt-8">
+    <h2 class="text-2xl font-bold mb-4">Manage Users</h2>
+
+    <table class="min-w-full bg-white border border-gray-300">
+        <thead>
+            <tr>
+                <th class="py-2 px-4 border-b">Username</th>
+                <th class="py-2 px-4 border-b">Email</th>
+                <th class="py-2 px-4 border-b">Role</th>
+                <th class="py-2 px-4 border-b">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td class="py-2 px-4 border-b text-center">@user.Name</td>
+                    <td class="py-2 px-4 border-b text-center">@user.Email</td>
+                    <td class="py-2 px-4 border-b text-center">@user.Role.ToString()</td>
+                    <td class="py-2 px-4 border-b text-center">
+                        <a href="@Url.Action("Edit", "Account", new { id = user.Id })" class="text-blue-500 hover:underline mr-2">Edit</a>
+                        <a href="@Url.Action("Delete", "Account", new { id = user.Id })" class="text-red-500 hover:underline">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="mt-4">
+        <a href="@Url.Action("Create", "Account")" class="bg-blue-500 text-white py-2 px-4 rounded">Create New User</a>
+    </div>
+</div>

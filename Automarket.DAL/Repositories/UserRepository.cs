@@ -36,5 +36,13 @@ namespace Automarket.DAL.Repositories
             return await Task.FromResult(_db.User);
         }
 
+        public async Task<bool> Update(User entity)
+        {
+            _db.User.Update(entity);
+            await _db.SaveChangesAsync();
+            return true;
+
+        }
+
     }
 }

@@ -5,6 +5,8 @@ using Automarket.Service.Interfaces;
 using Automarket.Service.Implementations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Automarket.Controllers;
+using Automarket.Domain.Hubs;
 
 namespace Automarket
 {
@@ -37,6 +39,7 @@ namespace Automarket
 
             builder.Services.AddAuthorization();
 
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
@@ -54,11 +57,14 @@ namespace Automarket
             app.UseRouting();
 
             app.UseAuthorization();
-            app.UseAuthentication();    
+            app.UseAuthentication();
+
 
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.MapHub<ChatHub>("/chathub");
 
             app.Run();
         }

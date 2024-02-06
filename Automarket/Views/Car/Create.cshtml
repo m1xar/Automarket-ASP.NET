@@ -12,6 +12,7 @@
     <h1 class="text-3xl font-bold mb-6">Add Car</h1>
 
     <form asp-controller="Car" asp-action="Create" asp-antiforgery="true" method="post" enctype = "multipart/form-data">
+        @Html.ValidationSummary(true, "", new { @class = "text-red-600" })
         <div class="mb-4">
             <label asp-for="Name" class="block text-gray-600 font-semibold mb-2">Name</label>
             <input asp-for="Name" class="form-input w-full" type = "text"/>
@@ -48,12 +49,6 @@
             <span asp-validation-for="TypeCar" class="text-red-600"></span>
         </div>
 
-      <!--  <div class="mb-4">
-            <label asp-for="Image" class="block text-gray-600 font-semibold mb-2">Image</label>
-            <input asp-for="Image" class="form-input w-full" />
-            <span asp-validation-for="Image" class="text-red-600"></span>
-        </div> -->
-
         <div class="mb-4">
             <label asp-for="ImageView" class="block text-gray-600 font-semibold mb-2">Car Image</label>
             <input asp-for="ImageView" type="file" class="form-input w-full" />
@@ -65,3 +60,8 @@
         </div>
     </form>
 </div>
+
+@section Scripts {
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script>
+}

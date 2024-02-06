@@ -19,5 +19,13 @@ namespace Automarket.Service.Interfaces
         Task<BaseResponse<User>> Verify(UserViewModel model);
 
         Task<BaseResponse<User>> GetUserByName(string name);
+
+        Task<BaseResponse<User>> GetUserByEmail(string email);
+
+        Task<BaseResponse<IEnumerable<User>>> GetUsers();
+
+        Task<BaseResponse<bool>> Delete(int id);
+
+        Task<BaseResponse<bool>> Edit(UserViewModel userModel);
     }
 }

@@ -28,11 +28,9 @@ namespace Automarket.Domain.ViewModels
         public DateTime DateCreate { get; set; }
         [Required(ErrorMessage = "Type is required")]
         public TypeCar TypeCar { get; set; }
-        [Required(ErrorMessage = "Image is required")]
-
         public IFormFile ImageView { get; set; }
 
-        public string Image { get; set; }
+        public string? Image { get; set; }
         public CarViewModel(Car car)
         {
             Id = car.Id;

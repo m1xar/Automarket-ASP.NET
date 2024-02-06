@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>@ViewData["Title"] - Automarket</title>
+    @RenderSection("Scripts", required: false)
 </head>
 <body class="bg-gray-100 font-sans">
-
-    <!-- Navbar -->
     <nav class="bg-blue-500 p-4 text-white">
         <div class="container mx-auto">
             <div class="flex items-center justify-between">
@@ -17,8 +16,13 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index" class="hover:underline">Home</a></li>
                     <li><a asp-area="" asp-controller="Car" asp-action="GetCars" class="hover:underline">Products</a></li>
                     <li><a asp-area="" asp-controller="Cart" asp-action="Index" class="hover:underline">Cart</a></li>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+                    {
+                                <li><a asp-area="" asp-controller="Account" asp-action="ManageUsers" class="hover:underline">Users</a></li>
+                    }
                     @if(User.Identity.Name != null)
                     {
+                            <li><a asp-area="" asp-controller="Chat" asp-action="Index" class="hover:underline">Chat</a></li>
                             <li><a asp-area="" asp-controller="Account" asp-action="Logout" class="hover:underline">Logout</a></li>
                     }
                     else{
@@ -30,12 +34,10 @@
         </div>
     </nav>
 
-    <!-- Main content -->
     <div class="container mx-auto py-8">
         @RenderBody()
     </div>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-4">
         <div class="container mx-auto text-center">
             <p>&copy; @DateTime.Now.Year Automarket. All rights reserved.</p>

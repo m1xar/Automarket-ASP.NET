@@ -150,12 +150,11 @@ namespace Automarket.Service.Implementations
 
         public async Task<BaseResponse<Car>> Edit(CarViewModel model)
         {
-            int id = model.Id;
             var baseResponse = new BaseResponse<Car>();
             try
             {
                 var cars = await _carRepository.Get();
-                var car = await cars.FirstOrDefaultAsync(x => x.Id == id);
+                var car = await cars.FirstOrDefaultAsync(x => x.Id == model.Id);
                 if (car != null)
                 {
                     car.Description = model.Description;

@@ -6,6 +6,7 @@ using Automarket.Domain.ViewModels;
 using Automarket.Service.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Automarket.Domain.Helpers;
+using System.Drawing;
 
 namespace Automarket.Service.Implementations
 {
@@ -103,7 +104,35 @@ namespace Automarket.Service.Implementations
             return baseResponse;
         }
 
-       
+        public async Task<BaseResponse<User>> GetUserByEmail(string email)
+        {
+            var baseResponse = new BaseResponse<User>();
+
+            try
+            {
+                var users = await _userRepository.Get();
+                var user = await users.FirstOrDefaultAsync(x => x.Email == email);
+                if (user != null)
+                {
+                    baseResponse.Data = user;
+                    baseResponse.StatusCode = StatusCode.OK;
+
+                }
+                else
+                {
+                    baseResponse.StatusCode = StatusCode.IntenalServerError;
+                    baseResponse.Description = "We have no users with such email";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                baseResponse.Description = $"[Get user By Email] {ex.Message}";
+            }
+            return baseResponse;
+        }
+
+
 
         public async Task<BaseResponse<User>> Create(UserViewModel model)
         {
@@ -112,8 +141,9 @@ namespace Automarket.Service.Implementations
             var user = new User()
             {
                 Name = model.Name,
+                Email = model.Email,
                 Password = HashPasswordHelper.HashPassword(model.Password),
-                Role = UserRole.Customer,
+                Role = model.Role,
                 CartItems = null
             };
 
@@ -167,6 +197,61 @@ namespace Automarket.Service.Implementations
             catch (Exception ex)
             {
                 baseResponse.Description = $"[Verify User] {ex.Message}";
+            }
+            return baseResponse;
+        }
+
+        public async Task<BaseResponse<bool>> Delete(int id)
+        {
+            var baseResponse = new BaseResponse<bool>();
+            try
+            {
+                var users = await _userRepository.Get();
+                    if(await _userRepository.Delete(users.FirstOrDefault(x => x.Id == id)))
+                    {
+                        baseResponse.Data = true;
+                        baseResponse.StatusCode = StatusCode.OK;
+                    }
+                    else
+                    {
+                        baseResponse.Data = false;
+                        baseResponse.StatusCode = StatusCode.IntenalServerError;
+                    }
+                
+            }
+            catch(Exception ex)
+            {
+                baseResponse.Description = $"[Delete User] {ex.Message}";
+            }
+            return baseResponse;
+        }
+        public async Task<BaseResponse<bool>> Edit(UserViewModel userModel)
+        {
+            var baseResponse = new BaseResponse<bool>();
+            try
+            {
+                var users = await _userRepository.Get();
+                var user = users.FirstOrDefault(x=>x.Id == userModel.Id);
+                user.Name = userModel.Name;
+                user.Email = userModel.Email;
+                user.Password = HashPasswordHelper.HashPassword(userModel.Password);
+                user.Role = userModel.Role;
+
+                    if (await _userRepository.Update(user))
+                    {
+                        baseResponse.Data = true;
+                        baseResponse.StatusCode = StatusCode.OK;
+                    }
+                    else
+                    {
+                        baseResponse.Data = false;
+                        baseResponse.StatusCode = StatusCode.IntenalServerError;
+                    }
+
+            }
+            catch (Exception ex)
+            {
+                baseResponse.Description = $"[Edit User] {ex.Message}";
             }
             return baseResponse;
         }
