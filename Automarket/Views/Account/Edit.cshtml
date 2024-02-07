@@ -4,6 +4,7 @@
     ViewBag.Title = "Edit";
     Layout = "_Layout";
 }
+<link href="~/css/editAccount.css" rel="stylesheet">
 
 <div class="container mx-auto mt-8">
     <h2 class="text-2xl font-bold mb-4">Edit User</h2>
@@ -11,34 +12,35 @@
     @using (Html.BeginForm("Edit", "Account", FormMethod.Post))
     {
         @Html.HiddenFor(model => model.Id)
-        @Html.HiddenFor(model=>model.CartItems)
+        @Html.HiddenFor(model => model.CartItems)
 
-        <div class="mb-4">
-            <label for="Name" class="block text-sm font-medium text-gray-600">Name</label>
-            <input type="text" id="Name" name="Name" class="mt-1 p-2 w-full border rounded-md" value="@Model.Name">
-        </div>
+            <div class="form-group">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" id="Name" name="Name" class="form-input" value="@Model.Name">
+            </div>
 
-        <div class="mb-4">
-            <label for="Email" class="block text-sm font-medium text-gray-600">Email</label>
-            <input type="email" id="Email" name="Email" class="mt-1 p-2 w-full border rounded-md" value="@Model.Email">
-        </div>
+            <div class="form-group">
+                <label for="Email" class="form-label">Email</label>
+                <input type="email" id="Email" name="Email" class="form-input" value="@Model.Email">
+            </div>
 
-        <div class="mb-4">
-            <label for="Password" class="block text-sm font-medium text-gray-600">Password</label>
-            <input type="password" id="Password" name="Password" class="mt-1 p-2 w-full border rounded-md">
-        </div>
+            <div class="form-group">
+                <label for="Password" class="form-label">Password</label>
+                <input type="password" id="Password" name="Password" class="form-input">
+            </div>
 
-        <div class="mb-4">
-                <label for="Role" class="block text-sm font-medium text-gray-600">Role</label>
-                <select id="Role" name="Role" class="mt-1 p-2 w-full border rounded-md">
-                    @foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
-                    {
-                          <option value="@role">@role</option>
-                    }
-                    </select>
-         </div>
-        <div class="mt-4">
-            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Update User</button>
-        </div>
+            <div class="form-group">
+                <label for="Role" class="form-label">Role</label>
+                <select id="Role" name="Role" class="form-input">
+                @foreach (UserRole role in Enum.GetValues(typeof(UserRole)))
+                {
+                            <option value="@role">@role</option>
+                }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="form-button">Update User</button>
+            </div>
     }
 </div>

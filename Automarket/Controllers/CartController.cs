@@ -23,7 +23,7 @@ namespace Automarket.Controllers
         {
             if(User.Identity.Name != null)
             {
-                var user = await _userService.GetUserByName(User.Identity.Name);
+                var user = await _userService.GetUserByEmail(User.Identity.Name);
                 var response = await _cartService.Create(id, user.Data.Id);
                 if(response.StatusCode == Domain.Enum.StatusCode.OK) 
                 {
@@ -39,7 +39,7 @@ namespace Automarket.Controllers
         {
             if (User.Identity.Name != null)
             {
-                var user = await _userService.GetUserByName(User.Identity.Name);
+                var user = await _userService.GetUserByEmail(User.Identity.Name);
                 var items = await _cartService.GetItemsByUserId(user.Data.Id);
                 var cars = new Dictionary<int, Car>();
                     foreach (var item in items.Data)

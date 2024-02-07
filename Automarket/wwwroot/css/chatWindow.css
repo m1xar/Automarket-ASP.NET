@@ -12,21 +12,21 @@
     clear: both;
 }
 
-    .chat-message.sent {
+.chat-message.sent {
         justify-content: flex-end;
-    }
+}
 
-    .chat-message.received .message-content {
+.chat-message.received .message-content {
         background-color: #F2F2F2;
         color: #333;
         border-bottom-left-radius: 0;
-    }
+}
 
-    .chat-message.sent .message-content {
+.chat-message.sent .message-content {
         background-color: #DCF8C6;
         color: #333;
         border-bottom-right-radius: 0;
-    }
+}
 
 .message-content {
     max-width: 70%;
@@ -41,16 +41,16 @@
     border-top: 1px solid #ccc;
 }
 
-    #inputForm input[type="text"] {
+#inputForm input[type="text"] {
         flex: 1;
         margin-right: 10px;
         padding: 8px;
         border-radius: 20px;
         border: 1px solid #ccc;
         outline: none;
-    }
+}
 
-    #inputForm input[type="button"] {
+#inputForm input[type="button"] {
         background-color: #007bff;
         color: #fff;
         border: none;
@@ -58,4 +58,4 @@
         border-radius: 20px;
         cursor: pointer;
         outline: none;
-    }
+}

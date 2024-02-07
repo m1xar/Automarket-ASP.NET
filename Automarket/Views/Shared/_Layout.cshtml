@@ -3,46 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <title>@ViewData["Title"] - Automarket</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet">
     @RenderSection("Scripts", required: false)
 </head>
-<body class="bg-gray-100 font-sans">
-    <nav class="bg-blue-500 p-4 text-white">
+<body>
+    <nav class="p-4">
         <div class="container mx-auto">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold">Automarket</div>
+                <div class="logo font-bold">Automarket</div>
                 <ul class="flex space-x-4">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="hover:underline">Home</a></li>
-                    <li><a asp-area="" asp-controller="Car" asp-action="GetCars" class="hover:underline">Products</a></li>
-                    <li><a asp-area="" asp-controller="Cart" asp-action="Index" class="hover:underline">Cart</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+                    <li><a asp-area="" asp-controller="Car" asp-action="GetCars" class="nav-link">Products</a></li>
+                    <li><a asp-area="" asp-controller="Cart" asp-action="Index" class="nav-link">Cart</a></li>
                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                     {
-                                <li><a asp-area="" asp-controller="Account" asp-action="ManageUsers" class="hover:underline">Users</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="ManageUsers" class="nav-link">Users</a></li>
                     }
-                    @if(User.Identity.Name != null)
+                    @if (User.Identity.Name != null)
                     {
-                            <li><a asp-area="" asp-controller="Chat" asp-action="Index" class="hover:underline">Chat</a></li>
-                            <li><a asp-area="" asp-controller="Account" asp-action="Logout" class="hover:underline">Logout</a></li>
+                                <li><a asp-area="" asp-controller="Chat" asp-action="Index" class="nav-link">Chat</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="Logout" class="nav-link">Logout</a></li>
                     }
-                    else{
-                        <li><a asp-area="" asp-controller="Account" asp-action="Login" class="hover:underline">Login</a></li>
-                        <li><a asp-area="" asp-controller="Account" asp-action="SignUp" class="hover:underline">Sign Up</a></li>
+                    else
+                    {
+                                <li><a asp-area="" asp-controller="Account" asp-action="Login" class="nav-link">Login</a></li>
+                                <li><a asp-area="" asp-controller="Account" asp-action="SignUp" class="nav-link">Sign Up</a></li>
                     }
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container mx-auto py-8">
+    <div class="container py-8">
         @RenderBody()
     </div>
 
-    <footer class="bg-gray-800 text-white py-4">
+    <footer class="py-4">
         <div class="container mx-auto text-center">
-            <p>&copy; @DateTime.Now.Year Automarket. All rights reserved.</p>
+            <p class="footer-text">&copy; @DateTime.Now.Year Automarket. All rights reserved.</p>
         </div>
     </footer>
-
 </body>
 </html>

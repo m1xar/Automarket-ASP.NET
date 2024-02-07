@@ -23,9 +23,7 @@ D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\staticwebassets\msbui
 D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Automarket.props
 D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Automarket.props
 D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\staticwebassets.pack.json
-D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\scopedcss\bundle\Automarket.styles.css
-D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\scopedcss\projectbundle\Automarket.bundle.scp.css
 D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\Automarket.csproj.CopyComplete
 D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\Automarket.dll
 D:\SE\C#\Automarket\Automarket\Automarket\obj\Debug\net8.0\refint\Automarket.dll

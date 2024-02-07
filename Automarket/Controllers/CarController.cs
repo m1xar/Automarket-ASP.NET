@@ -85,6 +85,11 @@ namespace Automarket.Controllers
             if(carModel.Image == null)
             {
                 carModel.Image = carModel.ImageView.FileName;
+                string filePath = "wwwroot/images/" + carModel.Image;
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await carModel.ImageView.CopyToAsync(stream);
+                }
             }
             await _carService.Edit(carModel);
             return RedirectToAction("GetCars");
@@ -113,7 +118,7 @@ namespace Automarket.Controllers
                 {
                     await carModel.ImageView.CopyToAsync(stream);
                 }
-                _carService.Create(carModel);
+                await _carService.Create(carModel);
                 return RedirectToAction("GetCars");
             }
             return View(carModel);

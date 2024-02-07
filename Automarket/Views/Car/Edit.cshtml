@@ -1,54 +1,56 @@
 ﻿@using Automarket.Domain.Enum
 @model Automarket.Domain.ViewModels.CarViewModel
 
-
 @{
     ViewBag.Title = "Edit";
     Layout = "_Layout";
 }
 
-
 <div class="container mx-auto my-8">
     <h1 class="text-3xl font-bold mb-6">Edit Car</h1>
 
-    <form asp-controller="Car" asp-action="Edit" asp-antiforgery="true" enctype = "multipart/form-data">
+    <form asp-controller="Car" asp-action="Edit" asp-antiforgery="true" enctype="multipart/form-data">
         <div class="mb-4">
             <label asp-for="Name" class="block text-gray-600 font-semibold mb-2">Name</label>
-            <input asp-for="Name" class="form-input w-full" type = "text"/>
+            <input asp-for="Name" class="form-input w-full rounded-md border-gray-300 shadow-sm" type="text" placeholder="Enter name"/>
         </div>
 
         <div class="mb-4">
             <label asp-for="Description" class="block text-gray-600 font-semibold mb-2">Description</label>
-            <textarea asp-for="Description" class="form-input w-full" rows="4"></textarea>
+            <textarea asp-for="Description" class="form-textarea w-full rounded-md border-gray-300 shadow-sm" rows="4" placeholder="Enter description"></textarea>
         </div>
 
-        <div class="mb-4">
-            <label asp-for="Model" class="block text-gray-600 font-semibold mb-2">Model</label>
-            <input asp-for="Model" class="form-input w-full" />
+        <div class="grid grid-cols-2 gap-4">
+            <div class="mb-4">
+                <label asp-for="Model" class="block text-gray-600 font-semibold mb-2">Model</label>
+                <input asp-for="Model" class="form-input w-full rounded-md border-gray-300 shadow-sm" type="text" placeholder="Enter model"/>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="Speed" class="block text-gray-600 font-semibold mb-2">Speed</label>
+                <input asp-for="Speed" class="form-input w-full rounded-md border-gray-300 shadow-sm" type="number" placeholder="Enter speed"/>
+            </div>
         </div>
 
-        <div class="mb-4">
-            <label asp-for="Speed" class="block text-gray-600 font-semibold mb-2">Speed</label>
-            <input asp-for="Speed" class="form-input w-full" />
-        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="mb-4">
+                <label asp-for="Price" class="block text-gray-600 font-semibold mb-2">Price</label>
+                <input asp-for="Price" class="form-input w-full rounded-md border-gray-300 shadow-sm" type="number" placeholder="Enter price"/>
+            </div>
 
-        <div class="mb-4">
-            <label asp-for="Price" class="block text-gray-600 font-semibold mb-2">Price</label>
-            <input asp-for="Price" class="form-input w-full" />
-        </div>
-
-        <div class="mb-4">
-            <label asp-for="TypeCar" class="block text-gray-600 font-semibold mb-2">Type</label>
-            <select asp-for="TypeCar" asp-items="Html.GetEnumSelectList<TypeCar>()" class="form-input w-full"></select>
+            <div class="mb-4">
+                <label asp-for="TypeCar" class="block text-gray-600 font-semibold mb-2">Type</label>
+                <select asp-for="TypeCar" asp-items="Html.GetEnumSelectList<TypeCar>()" class="form-select w-full rounded-md border-gray-300 shadow-sm"></select>
+            </div>
         </div>
 
         <div class="mb-4">
             <label asp-for="ImageView" class="block text-gray-600 font-semibold mb-2">Car Image</label>
-            <input asp-for="ImageView" type="file" class="form-input w-full" />
+            <input asp-for="ImageView" type="file" class="form-input w-full rounded-md border-gray-300 shadow-sm" />
         </div> 
 
         <div class="flex justify-end">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save</button>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600">Save</button>
         </div>
     </form>
 </div>

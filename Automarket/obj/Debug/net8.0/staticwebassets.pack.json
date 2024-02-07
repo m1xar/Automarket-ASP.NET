@@ -1,12 +1,32 @@
 {
   "Files": [
     {
-      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Automarket.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Automarket.bundle.scp.css"
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\car.css",
+      "PackagePath": "staticwebassets\\css\\car.css"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\cars.css",
+      "PackagePath": "staticwebassets\\css\\cars.css"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\cart.css",
+      "PackagePath": "staticwebassets\\css\\cart.css"
     },
     {
       "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\chatWindow.css",
       "PackagePath": "staticwebassets\\css\\chatWindow.css"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\createAccount.css",
+      "PackagePath": "staticwebassets\\css\\createAccount.css"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\editAccount.css",
+      "PackagePath": "staticwebassets\\css\\editAccount.css"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\manageAccounts.css",
+      "PackagePath": "staticwebassets\\css\\manageAccounts.css"
     },
     {
       "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\css\\site.css",
@@ -17,8 +37,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\images\\Screenshot 2023-12-10 163454.png",
+      "PackagePath": "staticwebassets\\images\\Screenshot 2023-12-10 163454.png"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\images\\Screenshot 2023-12-13 202103.png",
+      "PackagePath": "staticwebassets\\images\\Screenshot 2023-12-13 202103.png"
+    },
+    {
       "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\images\\Screenshot 2023-12-13 203342.png",
       "PackagePath": "staticwebassets\\images\\Screenshot 2023-12-13 203342.png"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\js\\chatAdmin.js",
+      "PackagePath": "staticwebassets\\js\\chatAdmin.js"
+    },
+    {
+      "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\js\\chatUser.js",
+      "PackagePath": "staticwebassets\\js\\chatUser.js"
     },
     {
       "Id": "D:\\SE\\C#\\Automarket\\Automarket\\Automarket\\wwwroot\\js\\site.js",
